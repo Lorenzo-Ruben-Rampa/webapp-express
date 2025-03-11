@@ -3,7 +3,7 @@ const connection = msql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'HorasDundragon93!',
-    database: 'movies'
+    database: 'movies_db'
 });
 connection.connect((err) => {
     if (err) throw err;
