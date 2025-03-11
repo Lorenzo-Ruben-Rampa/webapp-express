@@ -2,14 +2,14 @@
 const express = require('express')
 const router = express.Router();
 
+// Importiamo le funzioni del controller
+const postController = require('../controllers/postsController');
+
 //index//
-router.get('/posts', function (req, res) {
-    res.send(`Lista dei post`);
-});
+router.get('/', postsController.index);
+
 //show//
-router.get('/posts/:id', function (req, res) {
-    res.send(`Dettagli del post` + req.params.id);
-});
+router.get('/:id', postsController.show);
 
 //Esporto
 module.exports = router;
