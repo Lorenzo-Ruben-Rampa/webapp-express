@@ -1,6 +1,6 @@
 function setImagePath(req, res, next) {
     //creo path assoluto
-    req.imagePath = `${req.protocol}://${req.get('host')}/movies_cover`;
+    req.imagePath = `${req.protocol}://${req.get('host')}/img/movies_cover/`;
     next()
 }
 

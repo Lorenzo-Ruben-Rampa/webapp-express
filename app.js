@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 // registro il body-parser per "application/json"
 app.use(express.json());
 
-// registro il middleware di path imgs
+// registro il middleware di path img
 app.use(imagePathMiddleware);
 
 // definiamo la rotta home

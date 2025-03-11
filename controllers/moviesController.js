@@ -8,11 +8,19 @@ const app = express();
 function index(req, res) {
     // Creo query 
     const sql = 'SELECT * FROM movies'
-    connection.query(sql, (err, results) => {
+    connection.query(sql, (err, result) => {
         if (err) return res.status(500).json({ error: 'Database query failed' });
 
+        // versione mappata del risultato
+        const movies = result.map(movie => {
+            return {
+                ...movie,
+                image: req.imagePath + movie.image
+            }
+        })
+
         // se funziona tutto
-        res.json(results);
+        res.json(movies);
     });
 }
 
