@@ -1,10 +1,6 @@
 // // Import dei dati
 const connection = require('../data/db');
 
-//Es react api INIZIO
-const express = require('express');
-const app = express();
-
 function index(req, res) {
     // Creo query 
     const sql = 'SELECT * FROM movies'
