@@ -37,7 +37,7 @@ app.get('/api', (req, res) => {
 })
 
 // Utilizzo la rotta movies per definire la parte iniziale delle rotte
-app.use('/movies', moviesRouter)
+app.use('/api/movies', moviesRouter)
 
 // utilizzo middleware di gestione errore server 500
 app.use(errorsHandler);

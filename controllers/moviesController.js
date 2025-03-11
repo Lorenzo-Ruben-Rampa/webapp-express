@@ -24,7 +24,7 @@ function show(req, res) {
     //chiamata tramite mysql a movies db
     connection.query(sql, [id], (err, results) => {
         if (err) return res.status(500).json({ error: 'Database query failed' });
-        if (results.length === 0) return res.status(404).json({ error: 'Post not found' });
+        if (results.length === 0) return res.status(404).json({ error: 'Movie not found' });
         res.json(results[0]);
     });
 }
