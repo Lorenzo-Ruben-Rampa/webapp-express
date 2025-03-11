@@ -6,7 +6,7 @@ const port = 3000
 app.use(express.json());
 
 // Importo il file del routing
-const postsRouter = require('./routers/posts');
+const moviesRouter = require('./routers/movies');
 
 // Importo il middleware dell'errore 500
 const errorsHandler = require("./middlewares/errorsHandler");
@@ -22,8 +22,8 @@ app.get('/', (req, res) => {
     res.send('Server del mio blog')
 })
 
-// Utilizzo la rotta posts per definire la parte iniziale delle rotte
-app.use('/posts', postsRouter)
+// Utilizzo la rotta movies per definire la parte iniziale delle rotte
+app.use('/movies', moviesRouter)
 
 // utilizzo middleware di gestione errore server 500
 app.use(errorsHandler);

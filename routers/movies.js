@@ -3,13 +3,13 @@ const express = require('express')
 const router = express.Router();
 
 // Importiamo le funzioni del controller
-const postController = require('../controllers/postsController');
+const movieController = require('../controllers/moviesController');
 
 //index//
-router.get('/', postsController.index);
+router.get('/', movieController.index);
 
 //show//
-router.get('/:id', postsController.show);
+router.get('/:id', movieController.show);
 
 //Esporto
 module.exports = router;
