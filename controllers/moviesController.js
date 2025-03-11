@@ -27,9 +27,9 @@ function show(req, res) {
     const reviewSql = "SELECT * FROM reviews WHERE movie_id = ?";
 
     //chiamata tramite mysql a movies db
-    connection.query(sql, [id], (err, results) => {
+    connection.query(sql, [id], (err, movieResult) => {
         if (err) return res.status(500).json({ error: 'Database query failed' });
-        if (results.length === 0) return res.status(404).json({ error: 'Movie not found' });
+        if (movieResult.length === 0) return res.status(404).json({ error: 'Movie not found' });
         // se funziona tutto
         // res.json(results[0]);
         const movie = movieResult[0];
