@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT
 
+// Importo middleware cors
+var cors = require('cors');
+
 // Registro il body-parser per "application/json"
 app.use(express.json());
 
@@ -19,6 +22,9 @@ const imagePathMiddleware = require('./middlewares/imagePath');
 
 // Definisco una cartella per i file statici
 app.use(express.static('public'));
+
+//Registro middleware di cors
+app.use(cors({ origin: process.env.FE_APP }))
 
 // Definisco la rotta home
 app.get('/', (req, res) => {
