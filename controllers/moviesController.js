@@ -55,6 +55,32 @@ function show(req, res) {
     });
 }
 
+// inserimento nuovo libro
+function store(req, res, next) {
+
+    const { title, author, abstract } = req.body;
+
+    // gestiamo il valore del nome file creato dal middleware
+    const imageName = `${req.file.filename}`;
+
+    // creiamo la query di insert
+    const query = "INSERT INTO books (title, author, image, abstract) VALUES (?, ?, ?, ?)";
+
+    connection.query(query,
+        [title, author, imageName, abstract],
+        (err, result) => {
+            if (err) {
+                console.log(err)
+                return next(new Error("Errore interno del server"));
+            }
+
+            res.status(201).json({
+                status: "success",
+                message: "Libro creato con successo!",
+            });
+        })
+
+}
 function storeReview(req, res) {
 
     // id preso dai parametri
@@ -75,4 +101,4 @@ function storeReview(req, res) {
 }
 
 // esporto
-module.exports = { index, show, storeReview }
+module.exports = { index, show, store, storeReview }

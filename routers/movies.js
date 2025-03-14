@@ -2,6 +2,9 @@
 const express = require('express')
 const router = express.Router();
 
+// importiamo il controller
+const upload = require('../middlewares/multer');
+
 // Importiamo le funzioni del controller
 const movieController = require('../controllers/moviesController');
 
@@ -13,6 +16,10 @@ router.get('/:id', movieController.show);
 
 // store review
 router.post('/:id/reviews', movieController.storeReview);
+
+// store movie
+router.post('/', movieController.store);
+
 
 //Esporto
 module.exports = router;
