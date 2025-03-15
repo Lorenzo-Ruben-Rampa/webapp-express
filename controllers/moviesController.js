@@ -64,7 +64,7 @@ function store(req, res, next) {
     const imageName = `${req.file.filename}`;
 
     // creiamo la query di insert
-    const query = "INSERT INTO books (title, author, image, abstract) VALUES (?, ?, ?, ?)";
+    const query = "INSERT INTO movies (title, director, image, abstract) VALUES (?, ?, ?, ?)";
 
     connection.query(query,
         [title, author, imageName, abstract],

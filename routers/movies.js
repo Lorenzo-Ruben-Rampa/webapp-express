@@ -18,7 +18,7 @@ router.get('/:id', movieController.show);
 router.post('/:id/reviews', movieController.storeReview);
 
 // store movie
-router.post('/', movieController.store);
+router.post('/', upload.single('image'), movieController.store);
 
 
 //Esporto
